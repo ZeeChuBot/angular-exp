@@ -30,12 +30,29 @@
     "karma-phantomjs-launcher": "^0.1.4",
     "karma": "^0.12.16",
     "karma-jasmine": "^0.1.5",
-    "karma-sauce-launcher": "^0.2.8"
+    "karma-sauce-launcher": "^0.2.8",
+    "jasmine-node": "^1.14.3",
+    "testling": "^1.6.1",
+    "tape": "^2.13.3"
   },
   "engines": {
     "node": ">=0.10.0"
   },
+  "testling": {
+    "files": "test/*.js",
+    "browsers": [
+      "ie/6..latest",
+      "chrome/22..latest",
+      "firefox/16..latest",
+      "safari/latest",
+      "opera/11.0..latest",
+      "iphone/6",
+      "ipad/6",
+      "android-browser/latest"
+    ]
+  },
   "scripts": {
-    "test": "grunt test"
+    "test": "tape testling/test/*.js",
+    "test2": "grunt test"
   }
 }
