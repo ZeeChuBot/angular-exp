@@ -2,7 +2,7 @@
 // http://karma-runner.github.io/0.12/config/configuration-file.html
 // Generated on 2014-06-16 using
 // generator-karma 0.8.2
-var fs = require('fs');
+// var fs = require('fs');
 
 module.exports = function(config) {
 
