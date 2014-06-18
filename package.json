@@ -46,7 +46,7 @@
     ]
   },
   "scripts": {
-    "test": "tape testling/test/*.js",
-    "test2": "grunt test"
+    "test2": "tape testling/test/*.js",
+    "test": "grunt test"
   }
 }
