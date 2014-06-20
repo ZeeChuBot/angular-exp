@@ -16,32 +16,43 @@ module.exports = function(config) {
   //     process.env.SAUCE_ACCESS_KEY = require('./sauce').accessKey;
   //   }
   // }
-  // // Example set of browsers to run on Sauce Labs
-  // // Check out https://saucelabs.com/platforms for all browser/platform combos
-  // var customLaunchers = {
-  //   sl_chrome: {
-  //     base: 'SauceLabs',
-  //     browserName: 'chrome',
-  //     platform: 'Windows 7'
-  //   },
-  //   sl_firefox: {
-  //     base: 'SauceLabs',
-  //     browserName: 'firefox',
-  //     version: '27'
-  //   },
-  //   sl_ios_safari: {
-  //     base: 'SauceLabs',
-  //     browserName: 'iphone',
-  //     platform: 'OS X 10.9',
-  //     version: '7.1'
-  //   },
-  //   sl_ie_11: {
-  //     base: 'SauceLabs',
-  //     browserName: 'internet explorer',
-  //     platform: 'Windows 8.1',
-  //     version: '11'
-  //   }
-  // };
+  // Example set of browsers to run on Sauce Labs
+  // Check out https://saucelabs.com/platforms for all browser/platform combos
+  var customLaunchers = {
+    sl_chrome: {
+      base: 'SauceLabs',
+      browserName: 'chrome',
+      platform: 'Windows 7'
+    },
+
+    sl_ie_7: {
+      base: 'SauceLabs',
+      browserName: 'internet explorer',
+      platform: 'Windows XP',
+      version: '7'
+    },
+
+    // sl_firefox: {
+    //   base: 'SauceLabs',
+    //   browserName: 'firefox',
+    //   version: '27'
+    // }
+
+
+    // },
+    // sl_ios_safari: {
+    //   base: 'SauceLabs',
+    //   browserName: 'iphone',
+    //   platform: 'OS X 10.9',
+    //   version: '7.1'
+    // },
+    // sl_ie_11: {
+    //   base: 'SauceLabs',
+    //   browserName: 'internet explorer',
+    //   platform: 'Windows 8.1',
+    //   version: '11'
+    // }
+  };
 
 
 
@@ -66,7 +77,6 @@ module.exports = function(config) {
       'bower_components/angular-sanitize/angular-sanitize.js',
       'bower_components/angular-touch/angular-touch.js',
       'app/scripts/**/*.js',
-      'test/mock/**/*.js',
       'test/spec/**/*.js'
     ],
 
@@ -85,39 +95,41 @@ module.exports = function(config) {
     // - PhantomJS
     // - IE (only Windows)
     browsers: [
-      'PhantomJS'
+      'Chrome'
     ],
 
     // Which plugins to enable
-    plugins: [
-      'karma-phantomjs-launcher',
-      'karma-jasmine'
-    ],
+    // plugins: [
+    //   'karma-phantomjs-launcher',
+    //   'karma-chrome-launcher',
+    //   'karma-sa'
+    //   'karma-jasmine'
+    // ],
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
-    singleRun: false,
+    // singleRun: false,
 
     colors: true,
 
     // level of logging
     // possible values: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
-    logLevel: config.LOG_INFO
+    logLevel: config.LOG_DEBUG,
 
     // Uncomment the following lines if you are using grunt's server to run the tests
-    // proxies: {
-    //   '/': 'http://localhost:9000/'
-    // },
+    proxies: {
+      '/': 'http://localhost:9000/'
+    },
     // URL root prevent conflicts with the site root
     // urlRoot: '_karma_'
 
-    // sauceLabs: {
-    //     testName: 'Web App Unit Tests'
-    // },
-    // customLaunchers: customLaunchers,
-    // browsers: Object.keys(customLaunchers),
-    // reporters: ['dots', 'saucelabs'],
-    // singleRun: true
+    sauceLabs: {
+        testName: 'derp'
+    },
+    customLaunchers: customLaunchers,
+    browsers: Object.keys(customLaunchers),
+    reporters: ['dots', 'saucelabs'],
+    singleRun: true
 
   });
 };

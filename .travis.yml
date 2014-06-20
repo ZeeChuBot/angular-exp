@@ -1,6 +1,12 @@
 language: node_js
 node_js:
-  - '0.10'
+- '0.10'
 before_script:
-  - 'npm install -g bower grunt-cli'
-  - 'bower install'
+- npm install -g bower grunt-cli
+- bower install
+addons:
+  sauce_connect: true
+env:
+  global:
+  - secure: dou0yNdbm+TL4eQ58lj55iDqqugr6JSuonk2TAHEgAiN6//qbo21T6yc+K0og9+tRsPgfFYSFIvLlvMckoudCfTStkp6ffw5HvZKJku6dVPgukoOeAWTiaZ0/ynJ9XVz3gjfNU+bg5sDBtwbDLS/uuquWIYGev4i2g+NpQ2ZZqs=
+  - secure: c0qZ8YppPp62oJW8Ha/Z0Nh3OApgtuRtWaSHRom3PTkYO6Ud0q1yvWie9GGwDOS/X/1yho+LFrJLYpqMjlIVQ62Vyfipiq4Msl2hDbUW9i27jZ8EoizXC+3axFktd5GaMgGpELdKsCAbrM75R0vJ06DzL3ag6/8iYJT5jzAX+gE=
