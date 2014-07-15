@@ -1,6 +1,8 @@
 <!doctype html>
 <html class="no-js">
   <head>
+
+
     <meta charset="utf-8">
     <title></title>
     <meta name="description" content="">
@@ -72,10 +74,18 @@
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
+           <script src="bower_components/angular-mocks/angular-mocks.js"></script>
+    
         <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
 
+        <script  src="mock/json.js"></script>
+        <script  src="mock/backend.js"></script>
+ 
+
+        <script src="scripts/controllers/main.js"></script>
+
+
+        <script src="scripts/controllers/about.js"></script>
         <script src="scripts/factory.js"></script>
         <script src="scripts/loader.js"></script>
         <script src="scripts/event.directive.js"></script>
@@ -83,5 +93,6 @@
         <script src="scripts/cake.directive.js"></script>
         <script src="scripts/assign.directive.js"></script>
         <!-- endbuild -->
+
 </body>
 </html>

@@ -15,6 +15,7 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
+    'ngMockE2E',
     'ngTouch'
   ])
   .config(function ($routeProvider) {

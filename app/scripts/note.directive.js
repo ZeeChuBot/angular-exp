@@ -9,9 +9,11 @@ angular.module('angularExpApp').directive('meetNote', function() {
     };
 
     D.controller = function($scope) {
-        $scope.obj.process = function() {
-            return 'NOTE';
-        };
+        if($scope.obj){
+            $scope.obj.process = function() {
+                return 'NOTE';
+            };
+        }
     };
 
     D.link = function(scope, elem) {

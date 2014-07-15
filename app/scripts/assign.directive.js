@@ -9,9 +9,11 @@ angular.module('angularExpApp').directive('meetAssign', function() {
     };
 
     D.controller = function($scope) {
-        $scope.obj.process = function() {
-           return 'ASSIGN';
-        };
+        if($scope.obj) {
+            $scope.obj.process = function() {
+               return 'ASSIGN';
+            };
+        }
     };
 
     D.link = function(scope, elem) {

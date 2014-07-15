@@ -21,11 +21,27 @@ module.exports = function (grunt) {
     dist: 'dist'
   };
 
+  grunt.loadNpmTasks('grunt-json');
+
   // Define the configuration for all the tasks
   grunt.initConfig({
 
     // Project settings
     yeoman: appConfig,
+
+    json: {
+        prod: {
+            options: {
+                namespace: 'mockModel',
+                includePath: false,
+                processName: function (filename) {
+                    return filename.toLowerCase();
+                }
+            },
+            src: ['app/models/*.json'],
+            dest: 'app/mock/json.js'
+        }
+    },
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
@@ -50,6 +66,10 @@ module.exports = function (grunt) {
       },
       gruntfile: {
         files: ['Gruntfile.js']
+      },
+      json: {
+          files: ['<%= yeoman.app %>/models/**/*.json'],
+          tasks: ['json']
       },
       livereload: {
         options: {
@@ -362,6 +382,7 @@ module.exports = function (grunt) {
     }
 
     grunt.task.run([
+      'json',
       'clean:server',
       'wiredep',
       'concurrent:server',

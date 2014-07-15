@@ -8,9 +8,11 @@ angular.module('angularExpApp').directive('meetEvent', function() {
     };
     D.controller = function($scope) {
         console.log('Um..', $scope);
-        $scope.obj.process = function(){
-            return 'EVENT';
-        };
+        if($scope.obj){
+            $scope.obj.process = function(){
+                return 'EVENT';
+            };
+        }
     };
 
     D.link = function(scope, elem) {
