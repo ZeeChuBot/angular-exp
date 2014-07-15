@@ -23,7 +23,7 @@ angular.module('angularExpApp')
         //
         var sequence = 0;
 
-        var days = 1;
+        var days = 8;
         var day  = window.moment();
         for (var i = 0; i < days; ++i) {
 
