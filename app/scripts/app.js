@@ -30,4 +30,8 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+  })
+  .run(function() {
+
+      console.log('I am in a run block');
   });

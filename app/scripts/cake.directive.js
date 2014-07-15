@@ -1,15 +1,11 @@
 'use strict';
 
-angular.module('angularExpApp').directive('meet-cake', function() {
+angular.module('angularExpApp').directive('meetCake', function() {
 
     var D = {
-        restrict: 'A',
+        restrict: 'AE',
         replace: true,
-        templateUrl: 'scripts/cake.directive.html',
-        scope: {
-          obj: '=',
-          cfg: '='
-        }
+        templateUrl: 'scripts/cake.directive.html'
     };
 
     D.controller = function($scope) {

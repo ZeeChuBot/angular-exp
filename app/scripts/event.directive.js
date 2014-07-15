@@ -1,19 +1,14 @@
 'use strict';
 
-angular.module('angularExpApp').directive('meet-event', function() {
+angular.module('angularExpApp').directive('meetEvent', function() {
 
     var D = {
-        restrict: 'A',
-        replace: true,
-        templateUrl: 'scripts/event.directive.html',
-        scope: {
-          obj: '=',
-          cfg: '='
-        }
+        restrict: 'EA',
+        templateUrl: 'scripts/event.directive.html'
     };
-
     D.controller = function($scope) {
-        $scope.obj.process = function() {
+        console.log('Um..', $scope);
+        $scope.obj.process = function(){
             return 'EVENT';
         };
     };

@@ -1,15 +1,11 @@
 'use strict';
 
-angular.module('angularExpApp').directive('meet-assign', function() {
+angular.module('angularExpApp').directive('meetAssign', function() {
 
     var D = {
-        restrict: 'A',
+        restrict: 'AE',
         replace: true,
-        templateUrl: 'scripts/assign.directive.html',
-        scope: {
-          obj: '=',
-          cfg: '='
-        }
+        templateUrl: 'scripts/assign.directive.html'
     };
 
     D.controller = function($scope) {

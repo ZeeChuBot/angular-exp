@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularExpApp').directive('meet-loader', function(MeetFactory) {
+angular.module('angularExpApp').directive('meetLoader', function(MeetFactory) {
     return {
         restrict: 'A',
         replace: true,
@@ -9,14 +9,16 @@ angular.module('angularExpApp').directive('meet-loader', function(MeetFactory) {
             cfg: '='
         },
         link: function(scope, elem) {
-            console.log('Scope object information', scope, elem); 
+            console.log('Scope object information', scope.obj, scope.cfg, elem); 
              
-            var directive = Factory.createType(obj);
+            
+            var directive = MeetFactory.createType(scope.obj);
             if (directive) {
+                console.log("What the heck", directive);
                 elem.append(directive(scope));
             } else {
                 elem.append(angular.element('<div> ERROR</div>'));
-                console.error("We don't know what the heck this object is?", obj);
+                console.error('We don\'t know what the heck this object is?', scope.obj);
             }
         }
     };

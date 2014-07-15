@@ -1,15 +1,11 @@
 'use strict';
 
-angular.module('angularExpApp').directive('meet-note', function() {
+angular.module('angularExpApp').directive('meetNote', function() {
 
     var D = {
-        restrict: 'A',
+        restrict: 'AE',
         replace: true,
-        templateUrl: 'scripts/note.directive.html',
-        scope: {
-          obj: '=',
-          cfg: '='
-        }
+        templateUrl: 'scripts/note.directive.html'
     };
 
     D.controller = function($scope) {

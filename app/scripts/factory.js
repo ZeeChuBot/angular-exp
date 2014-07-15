@@ -3,10 +3,18 @@
 angular.module('angularExpApp').factory('MeetFactory', function($compile) {
     var MF = {
         cfg: {
-
+            note:    {directive: 'meet-note'},
+            assign:  {directive: 'meet-assign'},
+            cake:    {directive: 'meet-cake'},
+            'event': {directive: 'meet-event'}
         }
     };
 
+    MF.addType = function(key, typeCfg) {
+        if (key && typeCfg && typeCfg.directive) {
+            MF.cfg[key] = typeCfg;
+        }
+    };
 
     MF.createType = function(obj) {
         //Lookup object
@@ -15,7 +23,8 @@ angular.module('angularExpApp').factory('MeetFactory', function($compile) {
         }
 
         //This creates a linkFunction tied to the directive
-        return $compile(document.createElement(MF.cfg[obj.type]));
+        var directiveCfg = MF.cfg[obj.type];
+        return $compile(document.createElement(directiveCfg.directive));
     };
 
     return MF;
