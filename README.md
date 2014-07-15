@@ -1,4 +1,9 @@
-angular-exp
-===========
+AngularJs DC Meetup:
+Injecting Runtime Directives
+============================
 
-Some experiments in angularjs + external CI testing such as testling and sauce labs.
+Sample Code
+
+1. npm install
+2. bower install
+3. grunt server
