@@ -54,7 +54,7 @@ angular.module('angularExpApp')
     //Sorts 
     $scope.sortName = function() {
         console.log('sortName');
-        $scope.events = _.sortBy($scope.events, 'name');
+        $scope.events = _.sortBy($scope.events, 'description');
     };
 
     $scope.sortDate = function() {
