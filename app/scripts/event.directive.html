@@ -1,3 +1,13 @@
-<div>
-    EVENT
+<div class="row well">
+  <div class="col-md-4">
+    <img src="http://placekitten.com/80/80" >
+  </div>
+
+  <h3 class="col-md-4 pull-left">
+    {{obj.description}}
+  </h3>
+
+  <span class="col-md-2 pull-right">
+    {{obj.dueDate.format('MM-DD-YYYY')}}
+  </span>
 </div>

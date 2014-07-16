@@ -18,6 +18,10 @@ angular.module('angularExpApp').directive('meetCake', function() {
         scope.hide = function() {
             elem.destroy();
         };
+
+        scope.open = function() {
+            alert('IT IS A LIE');
+        };
     };
     return D;
 });
