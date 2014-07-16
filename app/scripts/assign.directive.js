@@ -20,6 +20,7 @@ angular.module('angularExpApp').directive('meetAssign', function() {
         scope.hide = function() {
             elem.hide();
         };
+        elem.addClass("schedule");
     };
     return D;
 });

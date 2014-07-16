@@ -21,7 +21,6 @@ angular.module('angularExpApp').directive('meetNote', function() {
         };
 
         elem.addClass("schedule");
-        scope.loaded = true;
     };
     return D;
 });

@@ -7,7 +7,7 @@ angular.module('angularExpApp').directive('meetEvent', function() {
         templateUrl: 'scripts/event.directive.html'
     };
     D.controller = function($scope) {
-        console.log('Um..', $scope);
+        // console.log('Um..', $scope);
         if($scope.obj){
             $scope.obj.process = function(){
                 return 'EVENT';
@@ -19,6 +19,7 @@ angular.module('angularExpApp').directive('meetEvent', function() {
         scope.hide = function() {
             elem.hide();
         };
+        elem.addClass("schedule");
     };
     return D;
 });
