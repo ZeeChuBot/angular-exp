@@ -1,16 +1,64 @@
-<div class="jumbotron" ng-init="init()">
-  <h1>Event Preview</h1>
-</div>
+<div ng-init="init()">
+  <div class="container-fluid">
+    <div class="row nav nav-inner">
+        <button type="button" class="btn btn-primary"
+            ng-click="query()"> 
+            Query
+        </button>
+        <button type="button" class="btn"
+            ng-show="events.length"
+            ng-class="{'btn-primary': overriden}"
+            ng-click="toggleOverride()"> 
+            {{overriden ? 'Override' : 'Default'}}
+        </button>
+        <button type="button" class="btn"
+            ng-show="events.length"
+            ng-click="sortName()">
+            Sort Name
+        </button>
+        <button type="button" class="btn"
+            ng-show="events.length"
+            ng-click="sortDate()">
+            Sort Date
+        </button>
+        <button type="button" class="btn"
+            ng-show="events.length"
+            ng-click="clear()">
+            Clear
+        </button>
+    </div>
+  </div>
 
-<div class="container-fluid">
+  <div class="container-fluid" ng-if="events.length">
+    <h2>
+        Dynamically Constructed Directives
+    </h2>
     <div class="row" ng-repeat="evt in events">
         <div obj="evt" cfg="cfg" meet-loader></div>
     </div>
-</div>
+  </div>
 
-<div class="row marketing">
-  <div meet-cake obj="{}">Cake REPLACE</div>
-  <div meet-event obj="{}">Event REPLACE</div>
-  <div meet-note obj="{}">Note REPLACE</div>
-  <div meet-assign obj="{}">Assign REPLACE</div>
+  <div class="container-fluid" ng-if="events.length == 0">
+    <h2>
+        Static Directives
+    </h2>
+    <!-- So you can do it this way.... 
+     but if a type changes or config is updated it is 
+    a pain to keep in sync
+    -->
+    <div ng-repeat="obj in static">
+        <div ng-if="obj.type == 'cake'" 
+            meet-cake obj="obj">
+        </div>
+        <div ng-if="obj.type == 'event'" 
+            meet-event obj="obj">
+        </div>
+        <div ng-if="obj.type == 'note'" 
+            meet-note obj="obj">
+        </div>
+        <div ng-if="obj.type == 'assignment'" 
+            meet-assign obj="obj">
+        </div>
+    </div>
+  </div>
 </div>

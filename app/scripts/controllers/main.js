@@ -10,59 +10,47 @@
 angular.module('angularExpApp')
 .controller('MainCtrl', function ($scope, ScheduleService) {
 
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-   
-    $scope.events = [];
     $scope.init = function() {
+        $scope.static = [
+            {type: 'cake', description: "Eat it Too"}, 
+            {type: 'assignment', description: "Work Work"}, 
+            {type: 'note', description: "The Best"}, 
+            {type: 'event', description: "Clever Girl"}
+        ];
+        $scope.overriden = lscache.get('Overriden');
 
-        ScheduleService.getSchedule().then(function(response){
-            $scope.merge(response.data);
-        });
-
-        var sequence = 0;
-
-        var days = 8;
-        var day  = window.moment();
-        for (var i = 0; i < days; ++i) {
-
-            day.add(1, 'days');
-            $scope.events.push({
-              id: sequence++,
-              type: 'note',    
-              description: 'A note',
-              dueDate: day
-            });
-
-            $scope.events.push({
-              id: sequence++,
-              type: 'assign',    
-              description: 'Assignment',
-              dueDate: day
-            });
-
-            $scope.events.push({
-              id: sequence++,
-              type: 'cake',    
-              description: 'A Cake',
-              dueDate: day
-            });
-
-            $scope.events.push({
-              id: sequence++,
-              type: 'event',    
-              description: 'A Event',
-              dueDate: day
-            });
-        }
+        $scope.query();
+    };
+   
+    //Local storage settings
+    $scope.toggleOverride = function() {
+        var state = !lscache.get('Overriden');
+        lscache.set('Overriden', state);
+        $scope.overriden = state;
     };
 
+    //Query helpers
+    $scope.events = [];
+    $scope.clear = function() {
+        $scope.events = [];
+    };
+    $scope.query = function() {
+        ScheduleService.getSchedule().then($scope.merge);
+    };
     $scope.merge = function(allResults) {
         console.log('All Results', allResults);
+        $scope.events = allResults.data;
     };
 
+    //Sorts 
+    $scope.sortName = function() {
+        console.log('sortName');
+        $scope.events = _.sortBy($scope.events, 'name');
+    };
+
+    $scope.sortDate = function() {
+        console.log('sort date');
+        $scope.events = _.sortBy($scope.events, 'dueDate');
+    };
 
 });

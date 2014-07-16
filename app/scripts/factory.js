@@ -3,10 +3,10 @@
 angular.module('angularExpApp').factory('MeetFactory', function($compile) {
     var MF = {
         cfg: {
-            note:    {directive: 'meet-note'},
-            assign:  {directive: 'meet-assign'},
-            cake:    {directive: 'meet-cake'},
-            'event': {directive: 'meet-event'}
+            note:        {directive: 'meet-note'},
+            assignment:  {directive: 'meet-assign'},
+            cake:        {directive: 'meet-cake'},
+            'event':     {directive: 'meet-event'}
         }
     };
 

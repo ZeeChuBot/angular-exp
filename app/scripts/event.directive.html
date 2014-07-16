@@ -3,11 +3,19 @@
     <img src="http://placekitten.com/80/80" >
   </div>
 
-  <h3 class="col-md-4 pull-left">
+  <h3 class="col-md-4">
     {{obj.description}}
   </h3>
 
-  <span class="col-md-2 pull-right">
+  <div class="col-md-2">
+      <span ng-repeat="m in obj.meta">
+        {{m}}      
+        <br/>
+      </span>
+  </div>
+
+  <span class="col-md-2">
     {{obj.dueDate.format('MM-DD-YYYY')}}
   </span>
+
 </div>

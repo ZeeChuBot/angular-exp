@@ -4,27 +4,27 @@
     "id": 1234,
     "type": "note",
     "date": "somedate",
-    "title": "A boring reminder"
+    "description": "The Best"
   },{
     "id": 1235,
-    "title": "bar",
     "type": "assignment",
-    "title": "Pop quiz"
+    "description": "Pop quiz"
   },{
     "id": 1236,
     "type": "event",
-    "title": "Happy Hour",
+    "severity": 2,
+    "description": "Happy Hour",
     "date": "all the time",
     "meta": {
         "food": ["vodka", "gin", "rum"],
         "cover": "nope",
         "afterparty": "heck ya",
-        "location": "Learning Objects HQ"
+        "location": "LO HQ"
     }
   },{
     "id": 1237,
     "type": "event",
-    "title": "League of Legends",
+    "description": "League of Legends",
     "date": "more than im willing to admit",
     "meta": {
         "food": ["redbull", "hotpockets"],
@@ -34,6 +34,19 @@
     "id": 1337,
     "type": "cake",
     "date": "never",
-    "title": "its a lie"
+    "description": "its a lie"
+  },{
+    "type": "note",
+    "description": "A boring reminder"
+  },{
+    "type": "event",
+    "severity": 5,
+    "description": "Dentist",
+    "meta": {
+        "yes": ["pain"]
+    }
+  },{
+    "type": "assignment",
+    "description": "Work Work"
   }]
 }

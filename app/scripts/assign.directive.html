@@ -7,6 +7,12 @@
     {{obj.description}}
   </h3>
 
+  <button type="button" class="btn btn-primary btn-lg alert-danger"
+      ng-click="hide()"
+      >
+    <i class="glyphicon glyphicon-warning-sign"></i>
+  </button>
+
   <span class="col-md-2 pull-right">
     {{obj.dueDate.format('MM-DD-YYYY')}}
   </span>
