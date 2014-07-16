@@ -8,13 +8,19 @@
  * Controller of the angularExpApp
  */
 angular.module('angularExpApp')
-.controller('MainCtrl', function ($scope) {
+.controller('MainCtrl', function ($scope, ActivityService) {
 
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
+
+    console.log('heyoo');
+
+    ActivityService.getNextActivity().then(function(response){
+      console.log('ze response', response);
+    });
 
     $scope.events = [];
     $scope.init = function() {

@@ -2,8 +2,8 @@
 
 (function(){
 
-angular.module('angularExpApp').run(function($httpBackend, $http) {
-    MockBackend.init($httpBackend, $http);
+angular.module('angularExpApp').run(function($httpBackend) {
+    MockBackend.init($httpBackend);
 });
 
 var MockBackend = {};
@@ -13,7 +13,7 @@ MockBackend.clearAllCache = function() {
     angular.mock.clearDataCache();
 };
 
-MockBackend.init = function($httpBackend, Request, $http){
+MockBackend.init = function($httpBackend){
 
     var inProduction = false;
     if (window.location.port  != '9000'){
@@ -39,11 +39,9 @@ MockBackend.init = function($httpBackend, Request, $http){
         }
     };
 
-    var TestMode = false;
-    !TestMode && $httpBackend.whenGET(/i18n\/.*\.json/).passThrough();
-    !TestMode && $httpBackend.whenGET(/.*html/).passThrough();
+    !inProduction && $httpBackend.whenGET(/.*html/).passThrough();
 
-    mockOurselves(/assignments$/, mockModel.ap_questions, 'post');
+    mockOurselves(/fake\/api\/activity\/$/, mockModel.ap_questions, 'get');
     mockOurselves(/.*\/quiz\/assessment\/metadata.*/, mockModel.assessment, 'post');
 };
 
