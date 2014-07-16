@@ -12,7 +12,7 @@ angular.module('angularExpApp').factory('MeetFactory', function($compile) {
 
     MF.getTypes = function() {
         // return ['note','assignment','cake', 'event'];
-        return ['note'];
+        return ['event'];
     };
 
     MF.addType = function(key, typeCfg) {

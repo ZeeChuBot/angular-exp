@@ -22,6 +22,7 @@ angular.module('angularExpApp').directive('meetCake', function() {
         scope.open = function() {
             alert('IT IS A LIE');
         };
+        elem.addClass("schedule");
     };
     return D;
 });

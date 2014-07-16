@@ -52,22 +52,11 @@ describe('DirectiveLoaderTest', function () {
             scope.cfg = {};
                 
             var c = $compile('<div obj="evt" cfg="cfg" meet-loader></div>')(scope);
-            
 
             //Trigger building out the directive on the scope via the link function
             $rootScope.$digest();
 
-            console.log(c.find('div div.schedule'));
-            console.log(_.isEmpty( $('.schedule', c) ) );
-            expect($('.schedule', c) !== null).toBe(true);
-
-            //now we can test basic functionality of a directive
-            // expect(c.find("schedule")).toBe(true);
-
-
-            //Check that the question is invalid (no information)  Then check that it serialized something.
-            // expect(q.isValid()).toBe(false);
-            // expect(q.serialize() != null).toBe(true);
+            expect(c.find('div').hasClass('schedule')).toBe(true);
 
         });
     });
