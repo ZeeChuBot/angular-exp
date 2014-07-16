@@ -9,10 +9,7 @@ angular.module('angularExpApp').directive('meetLoader', function(MeetFactory) {
             cfg: '='
         },
         link: function(scope, elem) {
-            // console.log('Scope object information', scope.obj, scope.cfg, elem); 
-             
-            
-            var directive = MeetFactory.createType(scope.obj);
+            var directive = MeetFactory.createType(scope.obj, scope.cfg);
             if (directive) {
                 // console.log('What the heck', directive);
                 elem.append(directive(scope));
