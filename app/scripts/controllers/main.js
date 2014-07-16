@@ -8,7 +8,7 @@
  * Controller of the angularExpApp
  */
 angular.module('angularExpApp')
-.controller('MainCtrl', function ($scope, ScheduleService) {
+.controller('MainCtrl', function ($scope, ScheduleService, MeetFactory) {
 
     $scope.init = function() {
         $scope.static = [
@@ -17,17 +17,26 @@ angular.module('angularExpApp')
             {type: 'note', description: "The Best"}, 
             {type: 'event', description: "Clever Girl"}
         ];
-        $scope.overriden = lscache.get('Overriden');
-
-        $scope.query();
+        $scope.setOverride(lscache.get('Overriden'));
+        //$scope.query();
     };
    
     //Local storage settings
     $scope.toggleOverride = function() {
         var state = !lscache.get('Overriden');
         lscache.set('Overriden', state);
-        $scope.overriden = state;
+        $scope.setOverride(state);
+        $scope.query();
     };
+
+    $scope.setOverride = function(state) {
+        $scope.overriden = state;
+        if($scope.overriden) {
+            MeetFactory.cfg.note.directive = 'meet-unicorn';
+        }else {
+            MeetFactory.cfg.note.directive = 'meet-note';
+        }
+    }
 
     //Query helpers
     $scope.events = [];
