@@ -8,7 +8,7 @@
  * Controller of the angularExpApp
  */
 angular.module('angularExpApp')
-.controller('MainCtrl', function ($scope, ActivityService) {
+.controller('MainCtrl', function ($scope, ScheduleService) {
 
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
@@ -18,15 +18,14 @@ angular.module('angularExpApp')
 
     console.log('heyoo');
 
-    ActivityService.getNextActivity().then(function(response){
-      console.log('ze response', response);
-    });
-
+   
     $scope.events = [];
     $scope.init = function() {
-        //TODO
-        //$q.all([]).then($scope.merge);
-        //
+
+        ScheduleService.getSchedule().then(function(response){
+            $scope.merge(response.data);
+        });
+
         var sequence = 0;
 
         var days = 8;

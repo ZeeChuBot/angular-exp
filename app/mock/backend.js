@@ -41,8 +41,7 @@ MockBackend.init = function($httpBackend){
 
     !inProduction && $httpBackend.whenGET(/.*html/).passThrough();
 
-    mockOurselves(/fake\/api\/activity\/$/, mockModel.ap_questions, 'get');
-    mockOurselves(/.*\/quiz\/assessment\/metadata.*/, mockModel.assessment, 'post');
+    mockOurselves(/fake\/api\/schedule\/$/, mockModel.schedule, 'get');
 };
 
 window.MOCK_MODEL = mockModel;

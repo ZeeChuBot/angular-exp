@@ -1,5 +1,4 @@
-var mockModel = mockModel || {};
-mockModel["schedule"] = {
+{
   "count": 5,
   "data": [{
     "id": 1234,
@@ -38,4 +37,3 @@ mockModel["schedule"] = {
     "title": "its a lie"
   }]
 }
-;
