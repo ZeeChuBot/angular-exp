@@ -23,7 +23,7 @@ angular.module('angularExpApp').directive('meetNote', function() {
         };
 
         elem.addClass("plain");
-
+        
         scope.derp = 'herp';
     };
     return D;

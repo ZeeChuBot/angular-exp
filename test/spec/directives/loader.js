@@ -9,23 +9,8 @@ describe('DirectiveLoaderTest', function () {
 
 
     beforeEach(function(){
-        module('ngMockE2E');
+        // module('ngMockE2E');
         module("my.templates"); 
-
-
-
-
-var fukc = [
-    'ng',
-    'ngMockE2E',
-];
-// angular.module('artyApp', artyApp_dependencies);
-
-// Force the E2E httpBackend on all of our tests.  You want this.  Trust me.
-// module('ngMockE2E');
-
-
-        // module('angularExpApp', fukc);
         module('angularExpApp');
     });
  
@@ -44,22 +29,9 @@ var fukc = [
         $compile = _$compile_;
         DirectiveFactory = _MeetFactory_;
 
-        //allow directives to grab their respective html templates 
-//         _$httpBackend_.whenGET('scripts/note.directive.html').passThrough();
-// _$httpBackend_.whenGET('scripts/cake.directive.html').passThrough();
-// _$httpBackend_.whenGET('scripts/assign.directive.html').passThrough();
-// _$httpBackend_.whenGET('scripts/event.directive.html').passThrough();
-
         $httpBackend.whenGET(/html/).passThrough();
+        $templateCache.put('scripts/note.directive.html', '<div>{{derp}}</div>');
 
-        // $httpBackend.whenGET(/.*/).passThrough();
-        // _$httpBackend_.whenGET(/.*/).passThrough();
-    }));
-
-// var $httpBackend;
-    beforeEach(inject(function($injector) {
-      // $httpBackend = $injector.get('$httpBackend');
-      // $httpBackend.whenGET(/.*/).passThrough();
     }));
 
 
@@ -71,16 +43,10 @@ var fukc = [
     });
 
     it('Should be able to create one of each schedule directive type', function() {
-        // $httpBackend.flush();
-
+      
         console.log($templateCache);
         var types = DirectiveFactory.getTypes();
         _.each(types, function(t) {
-        // $httpBackend.expectGET('scripts/note.directive.html');
-        // $httpBackend.whenGET(/html/).passThrough();
-        // $httpBackend.whenGET(/html/).passThrough();
-
-        // $httpBackend.expect('GET', /html/).passThrough();           
             //spoof information for each directive type
             var scope = $rootScope.$new();
             scope.evt = {
