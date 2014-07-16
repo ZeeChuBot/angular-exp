@@ -55,9 +55,7 @@ describe('DirectiveLoaderTest', function () {
 
             //Trigger building out the directive on the scope via the link function
             $rootScope.$digest();
-
             expect(c.find('div').hasClass('schedule')).toBe(true);
-
         });
     });
 

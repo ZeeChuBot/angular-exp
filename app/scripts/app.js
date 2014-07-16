@@ -26,6 +26,5 @@ angular
       });
   })
   .run(function($rootScope) {
-      console.log('I am in a run block');
       $rootScope._ = window._;
   });
