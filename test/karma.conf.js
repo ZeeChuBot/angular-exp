@@ -18,7 +18,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'bower_components/angular/angular.js',
-      'bower_components/angular-mocks/angular-mocks.js',
+      // 'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/angular-animate/angular-animate.js',
       'bower_components/angular-cookies/angular-cookies.js',
       'bower_components/angular-resource/angular-resource.js',
@@ -27,10 +27,8 @@ module.exports = function(config) {
       'bower_components/angular-touch/angular-touch.js',
       'bower_components/underscore/underscore.js',
       'app/scripts/**/*.js',
+      'app/scripts/**/*.html',
       'test/spec/**/*.js'
-
-      // 'app/bower_components/jquery/jquery.js',
-      // 'app/bower_components/jasmine-jquery/lib/jasmine-jquery.js',
 
       // 'app/bower_components/momentjs/moment.js',
 
@@ -43,6 +41,14 @@ module.exports = function(config) {
 
 
     ],
+
+    preprocessors: {
+      'app/scripts/**/*.html': 'html2js'
+    },
+
+    ngHtml2JsPreprocessor: {
+      moduleName: "my.templates"
+    },
 
     // list of files / patterns to exclude
     exclude: [],
@@ -67,6 +73,7 @@ module.exports = function(config) {
     plugins: [
       'karma-phantomjs-launcher',
       'karma-chrome-launcher',
+      'karma-ng-html2js-preprocessor',
       // 'karma-sa'
       'karma-jasmine'
     ],

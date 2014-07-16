@@ -1,6 +1,7 @@
 'use strict';
 describe('DirectiveLoaderTest', function () {
     var $rootScope,
+        $templateCache,
         $http,
         $httpBackend,
         $compile,
@@ -9,6 +10,7 @@ describe('DirectiveLoaderTest', function () {
 
     beforeEach(function(){
         module('ngMockE2E');
+        module("my.templates"); 
 
 
 
@@ -29,29 +31,35 @@ var fukc = [
  
 
     beforeEach(inject(function (
-        _$rootScope_, 
-        _$http_, 
+        _$rootScope_,
+        _$templateCache_, 
         _$httpBackend_,
         _$compile_,
         _MeetFactory_
         ) {
 
+        $templateCache = _$templateCache_;
         $rootScope = _$rootScope_;
-        $http = _$http_;
         $httpBackend = _$httpBackend_;
         $compile = _$compile_;
         DirectiveFactory = _MeetFactory_;
 
         //allow directives to grab their respective html templates 
-        _$httpBackend_.whenGET('scripts/note.directive.html/').passThrough();
-        $httpBackend.whenGET(/.*/).passThrough();
-        _$httpBackend_.whenGET(/.*/).passThrough();
+//         _$httpBackend_.whenGET('scripts/note.directive.html').passThrough();
+// _$httpBackend_.whenGET('scripts/cake.directive.html').passThrough();
+// _$httpBackend_.whenGET('scripts/assign.directive.html').passThrough();
+// _$httpBackend_.whenGET('scripts/event.directive.html').passThrough();
+
+        $httpBackend.whenGET(/html/).passThrough();
+
+        // $httpBackend.whenGET(/.*/).passThrough();
+        // _$httpBackend_.whenGET(/.*/).passThrough();
     }));
 
 // var $httpBackend;
     beforeEach(inject(function($injector) {
-      $httpBackend = $injector.get('$httpBackend');
-      $httpBackend.whenGET(/.*/).passThrough();
+      // $httpBackend = $injector.get('$httpBackend');
+      // $httpBackend.whenGET(/.*/).passThrough();
     }));
 
 
@@ -63,11 +71,16 @@ var fukc = [
     });
 
     it('Should be able to create one of each schedule directive type', function() {
+        // $httpBackend.flush();
+
+        console.log($templateCache);
         var types = DirectiveFactory.getTypes();
         _.each(types, function(t) {
+        // $httpBackend.expectGET('scripts/note.directive.html');
+        // $httpBackend.whenGET(/html/).passThrough();
+        // $httpBackend.whenGET(/html/).passThrough();
 
-        $httpBackend.whenGET(/html/).passThrough();
-            
+        // $httpBackend.expect('GET', /html/).passThrough();           
             //spoof information for each directive type
             var scope = $rootScope.$new();
             scope.evt = {
@@ -75,12 +88,13 @@ var fukc = [
             };
             scope.cfg = {};
                 
-            $compile('<div obj="evt" cfg="cfg" meet-loader></div>')(scope);
+            var c = $compile('<div obj="evt" cfg="cfg" meet-loader></div>')(scope);
             // var c = ($compile('<div meet_="question"></div>')(scope));
             
             //Trigger building out the directive on the scope via the link function
             $rootScope.$digest();
 
+            console.log('hmm', c);
             //now we can test basic functionality of a directive on the scope
 
 

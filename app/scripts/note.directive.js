@@ -1,5 +1,4 @@
 'use strict';
-
 angular.module('angularExpApp').directive('meetNote', function() {
 
     var D = {
@@ -9,6 +8,7 @@ angular.module('angularExpApp').directive('meetNote', function() {
     };
 
     D.controller = function($scope) {
+        console.log('waaa');
         if($scope.obj){
             $scope.obj.process = function() {
                 return 'NOTE';
@@ -17,9 +17,14 @@ angular.module('angularExpApp').directive('meetNote', function() {
     };
 
     D.link = function(scope, elem) {
+        console.log('Im lnkisn');
         scope.hide = function() {
             elem.hide();
         };
+
+        elem.addClass("plain");
+
+        scope.derp = 'herp';
     };
     return D;
 });
