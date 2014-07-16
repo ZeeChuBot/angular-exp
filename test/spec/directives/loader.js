@@ -10,7 +10,7 @@ describe('DirectiveLoaderTest', function () {
 
     beforeEach(function(){
         // module('ngMockE2E');
-        module("my.templates"); 
+        module("stuff"); 
         module('angularExpApp');
     });
  
@@ -30,8 +30,6 @@ describe('DirectiveLoaderTest', function () {
         DirectiveFactory = _MeetFactory_;
 
         $httpBackend.whenGET(/html/).passThrough();
-        $templateCache.put('scripts/note.directive.html', '<div>{{derp}}</div>');
-
     }));
 
 
@@ -44,7 +42,6 @@ describe('DirectiveLoaderTest', function () {
 
     it('Should be able to create one of each schedule directive type', function() {
       
-        console.log($templateCache);
         var types = DirectiveFactory.getTypes();
         _.each(types, function(t) {
             //spoof information for each directive type
@@ -55,13 +52,17 @@ describe('DirectiveLoaderTest', function () {
             scope.cfg = {};
                 
             var c = $compile('<div obj="evt" cfg="cfg" meet-loader></div>')(scope);
-            // var c = ($compile('<div meet_="question"></div>')(scope));
             
+
             //Trigger building out the directive on the scope via the link function
             $rootScope.$digest();
 
-            console.log('hmm', c);
-            //now we can test basic functionality of a directive on the scope
+            console.log(c.find('div div.schedule'));
+            console.log(_.isEmpty( $('.schedule', c) ) );
+            expect($('.schedule', c) !== null).toBe(true);
+
+            //now we can test basic functionality of a directive
+            // expect(c.find("schedule")).toBe(true);
 
 
             //Check that the question is invalid (no information)  Then check that it serialized something.
