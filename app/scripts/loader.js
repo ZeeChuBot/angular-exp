@@ -11,7 +11,6 @@ angular.module('angularExpApp').directive('meetLoader', function(MeetFactory) {
         link: function(scope, elem) {
             var directive = MeetFactory.createType(scope.obj, scope.cfg);
             if (directive) {
-                // console.log('What the heck', directive);
                 elem.append(directive(scope));
             } else {
                 elem.append(angular.element('<div> ERROR</div>'));

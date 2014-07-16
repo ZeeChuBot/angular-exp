@@ -25,6 +25,7 @@ module.exports = function(config) {
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-sanitize/angular-sanitize.js',
       'bower_components/angular-touch/angular-touch.js',
+      'bower_components/jquery/dist/jquery.js',
       'bower_components/underscore/underscore.js',
       'app/scripts/**/*.js',
       'app/scripts/**/*.html',
@@ -47,7 +48,8 @@ module.exports = function(config) {
     },
 
     ngHtml2JsPreprocessor: {
-      moduleName: "my.templates"
+      stripPrefix: 'app/',
+      moduleName: "stuff"
     },
 
     // list of files / patterns to exclude
