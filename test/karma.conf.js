@@ -2,59 +2,8 @@
 // http://karma-runner.github.io/0.12/config/configuration-file.html
 // Generated on 2014-06-16 using
 // generator-karma 0.8.2
-// var fs = require('fs');
 
 module.exports = function(config) {
-
-  // // Use ENV vars on Travis and sauce.json locally to get credentials
-  // if (!process.env.SAUCE_USERNAME) {
-  //   if (!fs.existsSync('sauce.json')) {
-  //     console.log('Create a sauce.json with your credentials based on the sauce-sample.json file.');
-  //     process.exit(1);
-  //   } else {
-  //     process.env.SAUCE_USERNAME = require('./sauce').username;
-  //     process.env.SAUCE_ACCESS_KEY = require('./sauce').accessKey;
-  //   }
-  // }
-  // Example set of browsers to run on Sauce Labs
-  // Check out https://saucelabs.com/platforms for all browser/platform combos
-  var customLaunchers = {
-    sl_chrome: {
-      base: 'SauceLabs',
-      browserName: 'chrome',
-      platform: 'Windows 7'
-    },
-
-    sl_ie_7: {
-      base: 'SauceLabs',
-      browserName: 'internet explorer',
-      platform: 'Windows XP',
-      version: '7'
-    },
-
-    // sl_firefox: {
-    //   base: 'SauceLabs',
-    //   browserName: 'firefox',
-    //   version: '27'
-    // }
-
-
-    // },
-    // sl_ios_safari: {
-    //   base: 'SauceLabs',
-    //   browserName: 'iphone',
-    //   platform: 'OS X 10.9',
-    //   version: '7.1'
-    // },
-    // sl_ie_11: {
-    //   base: 'SauceLabs',
-    //   browserName: 'internet explorer',
-    //   platform: 'Windows 8.1',
-    //   version: '11'
-    // }
-  };
-
-
 
   config.set({
     // enable / disable watching file and executing tests whenever any file changes
@@ -122,14 +71,6 @@ module.exports = function(config) {
     },
     // URL root prevent conflicts with the site root
     // urlRoot: '_karma_'
-
-    sauceLabs: {
-        testName: 'derp'
-    },
-    customLaunchers: customLaunchers,
-    browsers: Object.keys(customLaunchers),
-    reporters: ['dots', 'saucelabs'],
-    singleRun: true
 
   });
 };
