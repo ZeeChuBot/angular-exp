@@ -10,13 +10,13 @@
 angular.module('angularExpApp')
 .controller('MainCtrl', function ($scope, ScheduleService, MeetFactory) {
 
+    $scope.static = [
+        {type: 'cake', description: "Eat it Too"}, 
+        {type: 'assignment', description: "Work Work"}, 
+        {type: 'note', description: "The Best"}, 
+        {type: 'event', description: "Clever Girl"}
+    ];
     $scope.init = function() {
-        $scope.static = [
-            {type: 'cake', description: "Eat it Too"}, 
-            {type: 'assignment', description: "Work Work"}, 
-            {type: 'note', description: "The Best"}, 
-            {type: 'event', description: "Clever Girl"}
-        ];
         $scope.setOverride(lscache.get('Overriden'));
         //$scope.query();
     };
