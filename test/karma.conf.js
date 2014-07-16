@@ -25,8 +25,23 @@ module.exports = function(config) {
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-sanitize/angular-sanitize.js',
       'bower_components/angular-touch/angular-touch.js',
+      'bower_components/underscore/underscore.js',
       'app/scripts/**/*.js',
       'test/spec/**/*.js'
+
+      // 'app/bower_components/jquery/jquery.js',
+      // 'app/bower_components/jasmine-jquery/lib/jasmine-jquery.js',
+
+      // 'app/bower_components/momentjs/moment.js',
+
+
+      //Include all test files.
+      
+      // 'app/mock/json.js', //Localhost test data.
+      // 'app/mock/backend.js',
+
+
+
     ],
 
     // list of files / patterns to exclude
@@ -44,16 +59,17 @@ module.exports = function(config) {
     // - PhantomJS
     // - IE (only Windows)
     browsers: [
-      'Chrome'
+      // 'Chrome'
+      'PhantomJS'
     ],
 
     // Which plugins to enable
-    // plugins: [
-    //   'karma-phantomjs-launcher',
-    //   'karma-chrome-launcher',
-    //   'karma-sa'
-    //   'karma-jasmine'
-    // ],
+    plugins: [
+      'karma-phantomjs-launcher',
+      'karma-chrome-launcher',
+      // 'karma-sa'
+      'karma-jasmine'
+    ],
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
@@ -63,7 +79,7 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
-    logLevel: config.LOG_DEBUG,
+    logLevel: config.LOG_INFO,
 
     // Uncomment the following lines if you are using grunt's server to run the tests
     proxies: {

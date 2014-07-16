@@ -15,9 +15,6 @@ angular.module('angularExpApp')
       'AngularJS',
       'Karma'
     ];
-
-    console.log('heyoo');
-
    
     $scope.events = [];
     $scope.init = function() {

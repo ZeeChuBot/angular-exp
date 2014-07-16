@@ -10,6 +10,10 @@ angular.module('angularExpApp').factory('MeetFactory', function($compile) {
         }
     };
 
+    MF.getTypes = function() {
+        return ['note','assign','cake', 'event'];
+    };
+
     MF.addType = function(key, typeCfg) {
         if (key && typeCfg && typeCfg.directive) {
             MF.cfg[key] = typeCfg;
